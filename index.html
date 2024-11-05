@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Churn Prediction</h1>
+        <form action="/predict" method="POST">
+            <label for="Age">Age:</label>
+            <input type="text" id="Age" name="Age" required>
+            
+            <label for="Account_Manager">Account Manager:</label>
+            <input type="text" id="Account_Manager" name="Account_Manager" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if result %}
+            <div id="result">{{ result }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
